@@ -1,0 +1,918 @@
+<html class="scroll-smooth" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Horticulture Care Suggestions
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Inter', sans-serif;
+    }
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-exit {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  </style>
+ </head>
+ <body class="bg-gradient-to-b from-green-50 to-green-100 min-h-screen flex flex-col">
+  <header class="bg-green-700 text-white p-6 shadow-md sticky top-0 z-30">
+   <h1 class="text-3xl font-semibold text-center">
+    Horticulture Care Expert
+   </h1>
+  </header>
+  <main class="flex-grow container mx-auto px-4 py-8 max-w-4xl">
+   <section aria-label="Input selectors for horticulture suggestions" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+    <form class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="suggestionForm">
+     <div>
+      <label class="block font-semibold mb-1 text-gray-700" for="soil">
+       Soil Type
+      </label>
+      <select class="w-full border border-green-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="soil" name="soil" required="">
+       <option disabled="" selected="" value="">
+        Select soil type
+       </option>
+       <option>
+        Alluvial Soil
+       </option>
+       <option>
+        Black Cotton Soil
+       </option>
+       <option>
+        Red &amp; Yellow Soil
+       </option>
+       <option>
+        Laterite Soil
+       </option>
+       <option>
+        Mountainous or Forest Soil
+       </option>
+       <option>
+        Arid or Desert Soil
+       </option>
+       <option>
+        Saline and Alkaline Soil
+       </option>
+       <option>
+        Peaty and Marshy Soil
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block font-semibold mb-1 text-gray-700" for="climate">
+       Climate
+      </label>
+      <select class="w-full border border-green-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="climate" name="climate" required="">
+       <option disabled="" selected="" value="">
+        Select climate
+       </option>
+       <option>
+        Humid and Tropical
+       </option>
+       <option>
+        Hot Semi Arid
+       </option>
+       <option>
+        Moisture
+       </option>
+       <option>
+        Wet and Dry
+       </option>
+       <option>
+        Monsoon Climate
+       </option>
+       <option>
+        Dry and Arid
+       </option>
+       <option>
+        Moderate
+       </option>
+       <option>
+        Cloudy
+       </option>
+       <option>
+        Shadow
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block font-semibold mb-1 text-gray-700" for="season">
+       Season
+      </label>
+      <select class="w-full border border-green-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="season" name="season" required="">
+       <option disabled="" selected="" value="">
+        Select season
+       </option>
+       <option>
+        Summer
+       </option>
+       <option>
+        Winter
+       </option>
+       <option>
+        Rainy
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block font-semibold mb-1 text-gray-700" for="water_summer">
+       Water Level (Summer)
+      </label>
+      <select class="w-full border border-green-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="water_summer" name="water_summer" required="">
+       <option disabled="" selected="" value="">
+        Select water level
+       </option>
+       <option>
+        Low
+       </option>
+       <option>
+        Medium
+       </option>
+       <option>
+        High
+       </option>
+      </select>
+     </div>
+     <div>
+      <label class="block font-semibold mb-1 text-gray-700" for="water_other">
+       Water Level (Other Seasons)
+      </label>
+      <select class="w-full border border-green-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500" id="water_other" name="water_other" required="">
+       <option disabled="" selected="" value="">
+        Select water level
+       </option>
+       <option>
+        Low
+       </option>
+       <option>
+        Medium
+       </option>
+       <option>
+        High
+       </option>
+      </select>
+     </div>
+     <div class="sm:col-span-2 flex space-x-4 justify-center mt-4">
+      <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-6 rounded-md shadow-md transition duration-300 flex items-center space-x-2" id="suggestBtn" type="submit">
+       <i class="fas fa-seedling">
+       </i>
+       <span>
+        Suggest Plant &amp; Intercrop
+       </span>
+      </button>
+      <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold py-2 px-6 rounded-md shadow-md transition duration-300 flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled="" id="prevBtn" type="button">
+       <i class="fas fa-arrow-left">
+       </i>
+       <span>
+        Previous Suggestion
+       </span>
+      </button>
+      <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-md shadow-md transition duration-300 flex items-center space-x-2" id="nextBtn" type="button">
+       <i class="fas fa-arrow-right">
+       </i>
+       <span>
+        Next Suggestion
+       </span>
+      </button>
+     </div>
+    </form>
+   </section>
+   <section aria-label="Suggestions display" class="bg-white rounded-lg shadow-lg p-6 space-y-8">
+    <div class="space-y-6" id="suggestionDisplay">
+     <article class="space-y-4 animate-fade-in" id="plantSuggestion">
+      <h2 class="text-2xl font-semibold text-green-800 mb-2 flex items-center space-x-2">
+       <i class="fas fa-leaf text-green-600">
+       </i>
+       <span id="plantName">
+        Plant Suggestion
+       </span>
+      </h2>
+      <p class="text-gray-700 leading-relaxed whitespace-pre-line" id="plantDetails">
+       Please select options and click "Suggest Plant &amp; Intercrop" to
+              see suggestions.
+      </p>
+     </article>
+     <article class="space-y-4 animate-fade-in" id="intercropSuggestion">
+      <h2 class="text-2xl font-semibold text-green-800 mb-2 flex items-center space-x-2">
+       <i class="fas fa-seedling text-green-600">
+       </i>
+       <span id="intercropName">
+        Intercrop Suggestion
+       </span>
+      </h2>
+      <p class="text-gray-700 leading-relaxed whitespace-pre-line" id="intercropDetails">
+       Please select options and click "Suggest Plant &amp; Intercrop" to
+              see suggestions.
+      </p>
+     </article>
+    </div>
+   </section>
+   <section aria-label="Previous suggestions history" class="bg-white rounded-lg shadow-lg p-6 mt-8">
+    <h3 class="text-xl font-semibold text-green-800 mb-4 flex items-center space-x-2">
+     <i class="fas fa-history">
+     </i>
+     <span>
+      Previous Suggestions
+     </span>
+    </h3>
+    <ul class="max-h-64 overflow-y-auto divide-y divide-green-200" id="historyList">
+     <li class="text-gray-500 text-center py-4">
+      No previous suggestions yet.
+     </li>
+    </ul>
+   </section>
+  </main>
+  <footer class="bg-green-700 text-white p-4 text-center text-sm">
+   © 2024 Horticulture Care Expert. All rights reserved.
+  </footer>
+  <script>
+   (() => {
+      // Data for plants with details (images removed)
+      const plants = [
+        {
+          name: "Mango",
+          spacing: "10m x 10m",
+          fertilizer: "NPK 200g/100g/100g per year",
+          pesticides: "Regular pesticide spray for hoppers/anthracnose",
+          care:
+            "Ensure well-drained soil, avoid waterlogging. Prune dead branches annually."
+        },
+        {
+          name: "Banana",
+          spacing: "1.8m x 1.8m",
+          fertilizer: "DAP 100g/plant, potash",
+          pesticides: "Monitor for leaf spot",
+          care:
+            "Requires high moisture; mulch to retain soil moisture. Remove dead leaves regularly."
+        },
+        {
+          name: "Guava",
+          spacing: "6m x 6m",
+          fertilizer: "NPK 250g/150g/150g per year",
+          pesticides: "Spray for fruit fly and wilt disease",
+          care:
+            "Prune to maintain shape and remove dead wood. Requires moderate watering."
+        },
+        {
+          name: "Papaya",
+          spacing: "2m x 2m",
+          fertilizer: "NPK 150g/100g/100g per year",
+          pesticides: "Watch for papaya ringspot virus and fruit flies",
+          care:
+            "Needs well-drained soil and regular watering. Protect from strong winds."
+        },
+        {
+          name: "Apple",
+          spacing: "4m x 4m",
+          fertilizer: "NPK 300g/200g/200g per year",
+          pesticides: "Spray for apple scab and codling moth",
+          care:
+            "Requires chilling hours; plant in temperate climate. Prune annually."
+        },
+        {
+          name: "Grapes",
+          spacing: "2m x 2m",
+          fertilizer: "NPK 150g/100g/100g per year",
+          pesticides: "Spray for powdery mildew and downy mildew",
+          care:
+            "Requires trellis support; prune after harvest. Ensure good air circulation."
+        },
+        {
+          name: "Pomegranate",
+          spacing: "5m x 5m",
+          fertilizer: "NPK 200g/150g/150g per year",
+          pesticides: "Spray for fruit borer and leaf spot",
+          care:
+            "Tolerates drought; requires well-drained soil. Prune to open canopy."
+        },
+        {
+          name: "Coconut",
+          spacing: "7.5m x 7.5m",
+          fertilizer: "NPK 250g/200g/200g per year",
+          pesticides: "Monitor for rhinoceros beetle and red palm weevil",
+          care:
+            "Requires sandy, well-drained soil and high humidity. Water regularly."
+        },
+        {
+          name: "Orange",
+          spacing: "5m x 5m",
+          fertilizer: "NPK 250g/150g/150g per year",
+          pesticides: "Spray for citrus canker and aphids",
+          care:
+            "Requires well-drained soil and regular watering. Protect from frost."
+        },
+        {
+          name: "Custardapple",
+          spacing: "6m x 6m",
+          fertilizer: "NPK 200g/150g/150g per year",
+          pesticides: "Spray for mealybugs and fruit borer",
+          care:
+            "Tolerates dry conditions; prune to maintain shape. Requires moderate watering."
+        },
+        {
+          name: "Figs",
+          spacing: "5m x 5m",
+          fertilizer: "NPK 150g/100g/100g per year",
+          pesticides: "Watch for fig rust and nematodes",
+          care:
+            "Prefers well-drained soil; prune after harvest. Needs moderate watering."
+        },
+        {
+          name: "Jamun",
+          spacing: "8m x 8m",
+          fertilizer: "NPK 200g/150g/150g per year",
+          pesticides: "Spray for fruit fly and leaf spot",
+          care:
+            "Tolerates drought; requires deep soil. Prune to remove dead wood."
+        },
+        {
+          name: "Peaches",
+          spacing: "4m x 4m",
+          fertilizer: "NPK 250g/200g/200g per year",
+          pesticides: "Spray for peach leaf curl and borers",
+          care:
+            "Requires chilling hours; plant in temperate climate. Prune annually."
+        },
+        {
+          name: "Moringa",
+          spacing: "3m x 3m",
+          fertilizer: "NPK 100g/50g/50g per year",
+          pesticides: "Generally pest resistant; watch for aphids",
+          care:
+            "Fast growing; requires well-drained soil. Prune regularly for leaf harvest."
+        },
+        {
+          name: "Dragon Fruits",
+          spacing: "2m x 2m",
+          fertilizer: "NPK 150g/100g/100g per year",
+          pesticides: "Spray for mealybugs and ants",
+          care:
+            "Requires trellis support; needs well-drained soil and moderate watering."
+        },
+        {
+          name: "Kiwi",
+          spacing: "3m x 3m",
+          fertilizer: "NPK 200g/150g/150g per year",
+          pesticides: "Spray for bacterial canker and leafrollers",
+          care:
+            "Requires trellis; needs temperate climate and well-drained soil."
+        },
+      ];
+
+      // Data for intercrops with details (images removed)
+      const intercrops = [
+        {
+          name: "Tomato",
+          spacing: "45cm x 60cm",
+          fertilizer: "NPK 100kg/ha",
+          pesticides: "Regular pesticide spray for fruit borer and blight",
+          care:
+            "Requires well-drained soil and full sun. Stake plants to support growth."
+        },
+        {
+          name: "Potato",
+          spacing: "60cm x 15cm",
+          fertilizer: "N:80kg/ha, P:60kg/ha, K:60kg/ha",
+          pesticides: "Watch for late blight",
+          care:
+            "Requires loose, well-drained soil. Hill soil around plants during growth."
+        },
+        {
+          name: "Cauliflower",
+          spacing: "45cm x 45cm",
+          fertilizer: "NPK 120kg/ha",
+          pesticides: "Spray for aphids and caterpillars",
+          care:
+            "Requires cool climate and consistent moisture. Protect heads from sun."
+        },
+        {
+          name: "Ladyfinger",
+          spacing: "30cm x 30cm",
+          fertilizer: "NPK 100kg/ha",
+          pesticides: "Spray for jassids and aphids",
+          care:
+            "Requires warm climate and well-drained soil. Stake tall varieties."
+        },
+        {
+          name: "Onion",
+          spacing: "10cm x 10cm",
+          fertilizer: "NPK 80kg/ha",
+          pesticides: "Spray for thrips and purple blotch",
+          care:
+            "Requires loose soil and moderate watering. Avoid waterlogging."
+        },
+        {
+          name: "Soyabean",
+          spacing: "45cm x 15cm",
+          fertilizer: "NPK 60kg/ha",
+          pesticides: "Spray for pod borer and aphids",
+          care:
+            "Requires well-drained soil and moderate rainfall. Rotate crops annually."
+        },
+        {
+          name: "Beans",
+          spacing: "30cm x 30cm",
+          fertilizer: "NPK 50kg/ha",
+          pesticides: "Spray for aphids and bean fly",
+          care:
+            "Requires well-drained soil and full sun. Provide support for climbing types."
+        },
+        {
+          name: "Carrot",
+          spacing: "5cm x 5cm",
+          fertilizer: "NPK 60kg/ha",
+          pesticides: "Watch for carrot fly",
+          care:
+            "Requires loose, sandy soil. Keep soil moist for good root development."
+        },
+        {
+          name: "Chilli",
+          spacing: "45cm x 45cm",
+          fertilizer: "NPK 100kg/ha",
+          pesticides: "Spray for thrips and fruit borer",
+          care:
+            "Requires warm climate and well-drained soil. Mulch to retain moisture."
+        },
+        {
+          name: "Cabbage",
+          spacing: "45cm x 45cm",
+          fertilizer: "NPK 120kg/ha",
+          pesticides: "Spray for aphids and caterpillars",
+          care:
+            "Requires cool climate and consistent moisture. Protect heads from sun."
+        },
+        {
+          name: "Fenugreek",
+          spacing: "10cm x 10cm",
+          fertilizer: "NPK 40kg/ha",
+          pesticides: "Generally pest resistant",
+          care:
+            "Requires well-drained soil and moderate watering. Harvest leaves early."
+        },
+        {
+          name: "Coriander",
+          spacing: "10cm x 10cm",
+          fertilizer: "NPK 40kg/ha",
+          pesticides: "Watch for aphids",
+          care:
+            "Requires cool climate and well-drained soil. Harvest leaves before flowering."
+        },
+        {
+          name: "Karela",
+          spacing: "30cm x 30cm",
+          fertilizer: "NPK 80kg/ha",
+          pesticides: "Spray for fruit fly and powdery mildew",
+          care:
+            "Requires trellis support; needs warm climate and regular watering."
+        },
+        {
+          name: "Mooli",
+          spacing: "10cm x 10cm",
+          fertilizer: "NPK 60kg/ha",
+          pesticides: "Watch for root maggots",
+          care:
+            "Requires loose soil and consistent moisture. Harvest before roots get woody."
+        },
+        {
+          name: "Garlic",
+          spacing: "10cm x 10cm",
+          fertilizer: "NPK 80kg/ha",
+          pesticides: "Spray for white rot and thrips",
+          care:
+            "Requires well-drained soil and moderate watering. Harvest when leaves yellow."
+        },
+        {
+          name: "Peas",
+          spacing: "5cm x 5cm",
+          fertilizer: "NPK 60kg/ha",
+          pesticides: "Spray for powdery mildew and aphids",
+          care:
+            "Requires cool climate and trellis support. Keep soil moist."
+        },
+        {
+          name: "Asparagus",
+          spacing: "30cm x 30cm",
+          fertilizer: "NPK 100kg/ha",
+          pesticides: "Watch for rust and aphids",
+          care:
+            "Requires well-drained soil and full sun. Harvest spears early."
+        },
+        {
+          name: "Spinach",
+          spacing: "10cm x 10cm",
+          fertilizer: "NPK 40kg/ha",
+          pesticides: "Watch for leaf miners",
+          care:
+            "Requires cool climate and consistent moisture. Harvest leaves regularly."
+        },
+        {
+          name: "Brinjal",
+          spacing: "60cm x 60cm",
+          fertilizer: "NPK 120kg/ha",
+          pesticides: "Spray for fruit borer and aphids",
+          care:
+            "Requires warm climate and well-drained soil. Stake plants if needed."
+        },
+        {
+          name: "Cotton",
+          spacing: "75cm x 75cm",
+          fertilizer: "NPK 150kg/ha",
+          pesticides: "Spray for bollworm and aphids",
+          care:
+            "Requires well-drained soil and warm climate. Monitor pests regularly."
+        },
+      ];
+
+      // State variables
+      let currentIndex = -1;
+      let history = [];
+
+      // DOM elements
+      const form = document.getElementById("suggestionForm");
+      const plantNameEl = document.getElementById("plantName");
+      const plantDetailsEl = document.getElementById("plantDetails");
+      const intercropNameEl = document.getElementById("intercropName");
+      const intercropDetailsEl = document.getElementById("intercropDetails");
+      const historyListEl = document.getElementById("historyList");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+
+      // Utility: fade animation for content changes
+      function fadeContent(element, callback) {
+        element.classList.add("opacity-0", "translate-y-4", "transition", "duration-300");
+        setTimeout(() => {
+          callback();
+          element.classList.remove("opacity-0", "translate-y-4");
+        }, 300);
+      }
+
+      // Get plant details by name
+      function getPlantByName(name) {
+        return plants.find((p) => p.name === name);
+      }
+
+      // Get intercrop details by name
+      function getIntercropByName(name) {
+        return intercrops.find((i) => i.name === name);
+      }
+
+      // Suggestion logic based on inputs
+      function generateSuggestion(inputs) {
+        const { soil, climate, season, waterSummer, waterOther } = inputs;
+
+        const soilSuitability = {
+          "Mango": ["Alluvial Soil", "Black Cotton Soil", "Red & Yellow Soil"],
+          "Banana": ["Alluvial Soil", "Red & Yellow Soil", "Laterite Soil", "Peaty and Marshy Soil"],
+          "Guava": ["Red & Yellow Soil", "Laterite Soil", "Mountainous or Forest Soil"],
+          "Papaya": ["Alluvial Soil", "Red & Yellow Soil", "Laterite Soil"],
+          "Apple": ["Mountainous or Forest Soil"],
+          "Grapes": ["Red & Yellow Soil", "Black Cotton Soil"],
+          "Pomegranate": ["Red & Yellow Soil", "Black Cotton Soil", "Arid or Desert Soil"],
+          "Coconut": ["Peaty and Marshy Soil", "Alluvial Soil"],
+          "Orange": ["Red & Yellow Soil", "Laterite Soil"],
+          "Custardapple": ["Red & Yellow Soil", "Laterite Soil"],
+          "Figs": ["Red & Yellow Soil", "Laterite Soil"],
+          "Jamun": ["Mountainous or Forest Soil", "Red & Yellow Soil"],
+          "Peaches": ["Mountainous or Forest Soil"],
+          "Moringa": ["Red & Yellow Soil", "Laterite Soil", "Arid or Desert Soil"],
+          "Dragon Fruits": ["Red & Yellow Soil", "Laterite Soil", "Arid or Desert Soil"],
+          "Kiwi": ["Mountainous or Forest Soil"],
+        };
+
+        const intercropSoilSuitability = {
+          "Tomato": ["Alluvial Soil", "Red & Yellow Soil", "Black Cotton Soil"],
+          "Potato": ["Mountainous or Forest Soil", "Alluvial Soil"],
+          "Cauliflower": ["Alluvial Soil", "Mountainous or Forest Soil"],
+          "Ladyfinger": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Onion": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Soyabean": ["Black Cotton Soil", "Red & Yellow Soil"],
+          "Beans": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Carrot": ["Mountainous or Forest Soil", "Alluvial Soil"],
+          "Chilli": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Cabbage": ["Mountainous or Forest Soil", "Alluvial Soil"],
+          "Fenugreek": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Coriander": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Karela": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Mooli": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Garlic": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Peas": ["Mountainous or Forest Soil", "Alluvial Soil"],
+          "Asparagus": ["Mountainous or Forest Soil"],
+          "Spinach": ["Alluvial Soil", "Mountainous or Forest Soil"],
+          "Brinjal": ["Alluvial Soil", "Red & Yellow Soil"],
+          "Cotton": ["Black Cotton Soil", "Red & Yellow Soil", "Arid or Desert Soil"],
+        };
+
+        const climateSuitability = {
+          "Mango": ["Humid and Tropical", "Monsoon Climate"],
+          "Banana": ["Humid and Tropical", "Monsoon Climate"],
+          "Guava": ["Hot Semi Arid", "Monsoon Climate", "Humid and Tropical"],
+          "Papaya": ["Humid and Tropical", "Monsoon Climate"],
+          "Apple": ["Moderate", "Mountainous or Forest Soil"],
+          "Grapes": ["Hot Semi Arid", "Moderate"],
+          "Pomegranate": ["Hot Semi Arid", "Dry and Arid"],
+          "Coconut": ["Humid and Tropical", "Monsoon Climate"],
+          "Orange": ["Humid and Tropical", "Monsoon Climate"],
+          "Custardapple": ["Hot Semi Arid", "Monsoon Climate"],
+          "Figs": ["Hot Semi Arid", "Monsoon Climate"],
+          "Jamun": ["Humid and Tropical", "Monsoon Climate"],
+          "Peaches": ["Moderate", "Mountainous or Forest Soil"],
+          "Moringa": ["Hot Semi Arid", "Dry and Arid"],
+          "Dragon Fruits": ["Hot Semi Arid", "Dry and Arid"],
+          "Kiwi": ["Moderate", "Mountainous or Forest Soil"],
+        };
+
+        const intercropClimateSuitability = {
+          "Tomato": ["Humid and Tropical", "Monsoon Climate", "Moderate"],
+          "Potato": ["Moderate", "Mountainous or Forest Soil"],
+          "Cauliflower": ["Moderate", "Mountainous or Forest Soil"],
+          "Ladyfinger": ["Humid and Tropical", "Monsoon Climate"],
+          "Onion": ["Humid and Tropical", "Monsoon Climate"],
+          "Soyabean": ["Hot Semi Arid", "Monsoon Climate"],
+          "Beans": ["Humid and Tropical", "Monsoon Climate"],
+          "Carrot": ["Moderate", "Mountainous or Forest Soil"],
+          "Chilli": ["Humid and Tropical", "Monsoon Climate"],
+          "Cabbage": ["Moderate", "Mountainous or Forest Soil"],
+          "Fenugreek": ["Humid and Tropical", "Monsoon Climate"],
+          "Coriander": ["Humid and Tropical", "Monsoon Climate"],
+          "Karela": ["Humid and Tropical", "Monsoon Climate"],
+          "Mooli": ["Humid and Tropical", "Monsoon Climate"],
+          "Garlic": ["Moderate", "Mountainous or Forest Soil"],
+          "Peas": ["Moderate", "Mountainous or Forest Soil"],
+          "Asparagus": ["Moderate", "Mountainous or Forest Soil"],
+          "Spinach": ["Humid and Tropical", "Monsoon Climate"],
+          "Brinjal": ["Humid and Tropical", "Monsoon Climate"],
+          "Cotton": ["Hot Semi Arid", "Dry and Arid"],
+        };
+
+        const waterPreference = {
+          "Mango": { summer: ["Medium", "High"], other: ["Medium", "High"] },
+          "Banana": { summer: ["High"], other: ["High"] },
+          "Guava": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Papaya": { summer: ["Medium", "High"], other: ["Medium", "High"] },
+          "Apple": { summer: ["Medium"], other: ["Medium"] },
+          "Grapes": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Pomegranate": { summer: ["Low"], other: ["Low"] },
+          "Coconut": { summer: ["High"], other: ["High"] },
+          "Orange": { summer: ["Medium"], other: ["Medium"] },
+          "Custardapple": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Figs": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Jamun": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Peaches": { summer: ["Medium"], other: ["Medium"] },
+          "Moringa": { summer: ["Low"], other: ["Low"] },
+          "Dragon Fruits": { summer: ["Low"], other: ["Low"] },
+          "Kiwi": { summer: ["Medium"], other: ["Medium"] },
+        };
+
+        const intercropWaterPreference = {
+          "Tomato": { summer: ["Medium", "High"], other: ["Medium", "High"] },
+          "Potato": { summer: ["Medium"], other: ["Medium"] },
+          "Cauliflower": { summer: ["Medium"], other: ["Medium"] },
+          "Ladyfinger": { summer: ["Medium"], other: ["Medium"] },
+          "Onion": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Soyabean": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Beans": { summer: ["Medium"], other: ["Medium"] },
+          "Carrot": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Chilli": { summer: ["Medium"], other: ["Medium"] },
+          "Cabbage": { summer: ["Medium"], other: ["Medium"] },
+          "Fenugreek": { summer: ["Low"], other: ["Low"] },
+          "Coriander": { summer: ["Low"], other: ["Low"] },
+          "Karela": { summer: ["Medium"], other: ["Medium"] },
+          "Mooli": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Garlic": { summer: ["Low"], other: ["Low"] },
+          "Peas": { summer: ["Low", "Medium"], other: ["Low", "Medium"] },
+          "Asparagus": { summer: ["Medium"], other: ["Medium"] },
+          "Spinach": { summer: ["Medium"], other: ["Medium"] },
+          "Brinjal": { summer: ["Medium"], other: ["Medium"] },
+          "Cotton": { summer: ["Low"], other: ["Low"] },
+        };
+
+        const filteredPlants = plants.filter((p) => {
+          const soilOk =
+            soilSuitability[p.name]?.includes(soil) ?? false;
+          const climateOk =
+            climateSuitability[p.name]?.includes(climate) ?? false;
+          const waterOk =
+            waterPreference[p.name]?.summer.includes(waterSummer) &&
+            waterPreference[p.name]?.other.includes(waterOther);
+          return soilOk && climateOk && waterOk;
+        });
+
+        const filteredIntercrops = intercrops.filter((i) => {
+          const soilOk =
+            intercropSoilSuitability[i.name]?.includes(soil) ?? false;
+          const climateOk =
+            intercropClimateSuitability[i.name]?.includes(climate) ?? false;
+          const waterOk =
+            intercropWaterPreference[i.name]?.summer.includes(waterSummer) &&
+            intercropWaterPreference[i.name]?.other.includes(waterOther);
+          return soilOk && climateOk && waterOk;
+        });
+
+        const plantSuggestion =
+          filteredPlants.length > 0
+            ? filteredPlants[currentIndex % filteredPlants.length]
+            : plants[currentIndex % plants.length];
+
+        const intercropSuggestion =
+          filteredIntercrops.length > 0
+            ? filteredIntercrops[currentIndex % filteredIntercrops.length]
+            : intercrops[currentIndex % intercrops.length];
+
+        return { plantSuggestion, intercropSuggestion };
+      }
+
+      // Save suggestion to localStorage
+      function saveSuggestion(suggestion) {
+        let saved = JSON.parse(localStorage.getItem("suggestions")) || [];
+        saved.push(suggestion);
+        localStorage.setItem("suggestions", JSON.stringify(saved));
+      }
+
+      // Load history from localStorage
+      function loadHistory() {
+        const saved = JSON.parse(localStorage.getItem("suggestions")) || [];
+        history = saved;
+        renderHistory();
+        updateNavButtons();
+      }
+
+      // Render history list
+      function renderHistory() {
+        if (history.length === 0) {
+          historyListEl.innerHTML =
+            '<li class="text-gray-500 text-center py-4">No previous suggestions yet.</li>';
+          return;
+        }
+        historyListEl.innerHTML = "";
+        history.forEach((item, idx) => {
+          const li = document.createElement("li");
+          li.className =
+            "py-3 px-2 hover:bg-green-50 cursor-pointer flex flex-col sm:flex-row sm:justify-between sm:items-center";
+          li.tabIndex = 0;
+          li.setAttribute("role", "button");
+          li.setAttribute("aria-label", `Suggestion ${idx + 1}: Plant ${item.plant}, Intercrop ${item.intercrop}`);
+          li.innerHTML = `
+            <div class="text-green-800 font-semibold">${item.plant} & ${item.intercrop}</div>
+            <div class="text-gray-600 text-sm mt-1 sm:mt-0">
+              Soil: ${item.soil} | Climate: ${item.climate} | Season: ${item.season} | Water(Summer): ${item.waterSummer} | Water(Other): ${item.waterOther}
+            </div>
+          `;
+          li.addEventListener("click", () => {
+            currentIndex = idx;
+            displaySuggestion(history[currentIndex], false);
+            updateNavButtons();
+            scrollToTop();
+          });
+          li.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              li.click();
+            }
+          });
+          historyListEl.appendChild(li);
+        });
+      }
+
+      // Scroll to top of main content
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      // Display suggestion in UI
+      function displaySuggestion(suggestion, save = true) {
+        fadeContent(plantNameEl, () => {
+          plantNameEl.textContent = suggestion.plant;
+        });
+        fadeContent(plantDetailsEl, () => {
+          const plant = getPlantByName(suggestion.plant);
+          plantDetailsEl.innerHTML = `
+            <strong>Spacing:</strong> ${plant.spacing}
+            <br />
+            <strong>Fertilizer:</strong> ${plant.fertilizer}
+            <br />
+            <strong>Pesticides:</strong> ${plant.pesticides}
+            <br />
+            <strong>Care:</strong> ${plant.care}
+          `;
+        });
+
+        fadeContent(intercropNameEl, () => {
+          intercropNameEl.textContent = suggestion.intercrop;
+        });
+        fadeContent(intercropDetailsEl, () => {
+          const intercrop = getIntercropByName(suggestion.intercrop);
+          intercropDetailsEl.innerHTML = `
+            <strong>Spacing:</strong> ${intercrop.spacing}
+            <br />
+            <strong>Fertilizer:</strong> ${intercrop.fertilizer}
+            <br />
+            <strong>Pesticides:</strong> ${intercrop.pesticides}
+            <br />
+            <strong>Care:</strong> ${intercrop.care}
+          `;
+        });
+
+        if (save) {
+          saveSuggestion(suggestion);
+          history.push(suggestion);
+          renderHistory();
+          currentIndex = history.length - 1;
+          updateNavButtons();
+        }
+      }
+
+      // Update navigation buttons state
+      function updateNavButtons() {
+        prevBtn.disabled = currentIndex <= 0;
+        nextBtn.disabled = currentIndex >= history.length - 1 || history.length === 0;
+      }
+
+      // Handle form submission (Suggest button)
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const soil = form.soil.value;
+        const climate = form.climate.value;
+        const season = form.season.value;
+        const waterSummer = form.water_summer.value;
+        const waterOther = form.water_other.value;
+
+        if (!soil || !climate || !season || !waterSummer || !waterOther) {
+          alert("Please select all options before suggesting.");
+          return;
+        }
+
+        currentIndex++;
+        const suggestion = generateSuggestion({
+          soil,
+          climate,
+          season,
+          waterSummer,
+          waterOther,
+        });
+        displaySuggestion(
+          {
+            soil,
+            climate,
+            season,
+            waterSummer,
+            waterOther,
+            plant: suggestion.plantSuggestion.name,
+            intercrop: suggestion.intercropSuggestion.name,
+          },
+          true
+        );
+        scrollToTop();
+      });
+
+      // Handle Previous button
+      prevBtn.addEventListener("click", () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          displaySuggestion(history[currentIndex], false);
+          scrollToTop();
+          updateNavButtons();
+        }
+      });
+
+      // Handle Next button
+      nextBtn.addEventListener("click", () => {
+        if (currentIndex < history.length - 1) {
+          currentIndex++;
+          displaySuggestion(history[currentIndex], false);
+          scrollToTop();
+          updateNavButtons();
+        }
+      });
+
+      // Initialize app
+      function init() {
+        loadHistory();
+        if (history.length > 0) {
+          currentIndex = history.length - 1;
+          displaySuggestion(history[currentIndex], false);
+        }
+      }
+
+      init();
+    })();
+  </script>
+ </body>
+</html>
